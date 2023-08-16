@@ -7,13 +7,13 @@ variable "zone_id" {
 variable "use_existing_managed_master_security_group" {
   type        = bool
   description = "If set to `true`, will use variable `managed_master_security_group` using an existing security group that was created outside of this module"
-  default     = false
+  default     = true
 }
 
 variable "use_existing_managed_slave_security_group" {
   type        = bool
   description = "If set to `true`, will use variable `managed_slave_security_group` using an existing security group that was created outside of this module"
-  default     = false
+  default     = true
 }
 
 variable "use_existing_additional_master_security_group" {
@@ -36,25 +36,25 @@ variable "use_existing_service_access_security_group" {
 
 variable "managed_master_security_group" {
   type        = string
-  default     = ""
+  default     = "sg-04c725bc7b1de6c87"
   description = "The id of the existing managed security group that will be used for EMR master node. If empty, a new security group will be created"
 }
 
 variable "managed_slave_security_group" {
   type        = string
-  default     = ""
+  default     = "sg-04c725bc7b1de6c87"
   description = "The id of the existing managed security group that will be used for EMR core & task nodes. If empty, a new security group will be created"
 }
 
 variable "additional_master_security_group" {
   type        = string
-  default     = ""
+  default     = "sg-04c725bc7b1de6c87"
   description = "The id of the existing additional security group that will be used for EMR master node. If empty, a new security group will be created"
 }
 
 variable "additional_slave_security_group" {
   type        = string
-  default     = ""
+  default     = "sg-04c725bc7b1de6c87"
   description = "The id of the existing additional security group that will be used for EMR core & task nodes. If empty, a new security group will be created"
 }
 
@@ -341,7 +341,7 @@ variable "additional_info" {
 variable "security_configuration" {
   type        = string
   description = "The security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater. See https://www.terraform.io/docs/providers/aws/r/emr_security_configuration.html for more info"
-  default     = null
+  default     = "sg-04c725bc7b1de6c87"
 }
 
 variable "create_task_instance_group" {

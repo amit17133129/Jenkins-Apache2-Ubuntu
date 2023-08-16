@@ -92,6 +92,7 @@ variable "slave_allowed_cidr_blocks" {
 variable "vpc_id" {
   type        = string
   description = "VPC ID to create the cluster in (e.g. `vpc-a22222ee`)"
+  default = "vpc-0c33ac572d57e77b3"
 }
 
 variable "master_dns_name" {
@@ -187,6 +188,7 @@ variable "release_label" {
 variable "applications" {
   type        = list(string)
   description = "A list of applications for the cluster. Valid values are: Flink, Ganglia, Hadoop, HBase, HCatalog, Hive, Hue, JupyterHub, Livy, Mahout, MXNet, Oozie, Phoenix, Pig, Presto, Spark, Sqoop, TensorFlow, Tez, Zeppelin, and ZooKeeper (as of EMR 5.25.0). Case insensitive"
+  default = [ "Flink" ]
 }
 
 
@@ -206,11 +208,13 @@ variable "key_name" {
 variable "region" {
   type        = string
   description = "AWS region"
+  default = "us-east-1"
 }
 
 variable "subnet_id" {
   type        = string
   description = "VPC subnet ID where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in a Amazon VPC"
+  default = "subnet-0071d43530bd4b3b8"
 }
 
 
@@ -235,21 +239,25 @@ variable "log_uri" {
 variable "core_instance_group_instance_type" {
   type        = string
   description = "EC2 instance type for all instances in the Core instance group"
+  default = "m4.large"
 }
 
 variable "core_instance_group_instance_count" {
   type        = number
   description = "Target number of instances for the Core instance group. Must be at least 1"
+  default     = 1
 }
 
 variable "core_instance_group_ebs_size" {
   type        = number
   description = "Core instances volume size, in gibibytes (GiB)"
+  default = 100
 }
 
 variable "core_instance_group_ebs_type" {
   type        = string
   description = "Core instances volume type. Valid options are `gp2`, `io1`, `standard` and `st1`"
+  default     = "gp2"
 }
 
 variable "core_instance_group_ebs_iops" {
@@ -279,13 +287,13 @@ variable "core_instance_group_autoscaling_policy" {
 variable "master_instance_group_instance_type" {
   type        = string
   description = "EC2 instance type for all instances in the Master instance group"
-
+  default = "m4.large"
 }
 
 variable "master_instance_group_instance_count" {
   type        = number
   description = "Target number of instances for the Master instance group. Must be at least 1"
-
+  default     = 1
 }
 
 variable "master_instance_group_ebs_size" {
@@ -297,6 +305,7 @@ variable "master_instance_group_ebs_size" {
 variable "master_instance_group_ebs_type" {
   type        = string
   description = "Master instances volume type. Valid options are `gp2`, `io1`, `standard` and `st1`"
+  default     = "gp2"
 }
 
 variable "master_instance_group_ebs_iops" {

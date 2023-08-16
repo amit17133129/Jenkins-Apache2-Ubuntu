@@ -208,7 +208,7 @@ variable "key_name" {
 variable "region" {
   type        = string
   description = "AWS region"
-  region = "us-east-1"
+  default = "us-east-1"
 }
 
 variable "subnet_id" {

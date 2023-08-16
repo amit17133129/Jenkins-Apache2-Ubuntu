@@ -291,7 +291,6 @@ variable "master_instance_group_instance_count" {
 variable "master_instance_group_ebs_size" {
   type        = number
   description = "Master instances volume size, in gibibytes (GiB)"
-  default = 100
 }
 
 variable "master_instance_group_ebs_type" {

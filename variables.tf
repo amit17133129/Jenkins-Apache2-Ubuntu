@@ -1,7 +1,7 @@
 variable "zone_id" {
   type        = string
   description = "Route53 parent zone ID. If provided (not empty), the module will create sub-domain DNS records for the masters and slaves"
-  default     = null
+  default     = no
 }
 
 variable "use_existing_managed_master_security_group" {
